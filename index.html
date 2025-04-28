@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <title>Omni Docs JS</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="./scripts/jquery-3.7.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+
+</head>
+
+<body>
+
+    <header id="shortcuts-top">
+        <h3>Omni Docs JS</h3>
+    </header>
+
+
+    <main>
+
+
+        <div id="main-part">
+            
+            <div id="files" class="h-100">
+                
+
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <li class="nav-item elements">
+                  <a class="nav-link bgstyle" href="#" id="new-file-link">Add a doc</a>
+                </li>
+                <li class="ms-auto nav-item elements">
+                  <a class="nav-link bgstyle" href="#" id="export-link">Export</a>                    
+                </li>
+                <li class="nav-item elements">
+                  <a class="nav-link bgstyle" href="#" id="import-link">Import</a>
+                </li>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent"></div>
+
+
+
+
+              </div>
+
+        </div>
+
+        
+        <div id="files-pop-up">
+            <div id="file-welcomer">
+
+            <div id="file-dialog" class="bgstyle">
+
+                <input type="file" name="">
+                <div id="file-dialog-overlay">
+                    <img src="./resources/uploadIcon.svg"/>            
+                    <h3>Upload a file</h3>
+                    <p>No file selected</p>
+                </div>
+            </div>
+
+            <div id="separator"></div>
+
+            <button id="file-create" class="bgstyle">
+                    <img src="./resources/plusIcon.svg"/>
+                    <h3>Create a new file</h3>            
+            </button>
+
+        </div>
+        </div>
+
+    </main>
+
+
+
+<footer>
+    
+    <p>Omni_Docs_CE Editor - Web port - Version 0.0.1 - <i>Manerr</i></p>
+    <p>Use <i>Adriweb</i>'s <a href="https://github.com/adriweb/tivars_lib_cpp" target="_blank">tivars_lib_cpp</a> library, and based on/made for the original <i>elyas.creates</i>' software</p>
+
+</footer>
+
+<script type="module">
+    import TIVarsLib from './scripts/TIVarsLib.js';
+    window.lib = await TIVarsLib();
+</script>
+<script type="text/javascript" src="./scripts/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+
+</html>
