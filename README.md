@@ -1,6 +1,6 @@
 ### Omni Docs JS
 
-Github Pages hosted app on : [manerr.github.io/omni_docs_js]
+Github Pages hosted app on : [https://manerr.github.io/omni_docs_js]
 
 Omni docs JS is a web version of Elyas.Creates [Omni Docs CE ](https://tiplanet.org/forum/archives_voir.php?id=4592941) software
 
