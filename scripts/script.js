@@ -112,7 +112,7 @@ function exportBasedOnTabs(e){
 
     let tabFileName = $("#files .nav-link")[i].innerText;
 
-    content += `\\${tabFileName}\n` + tabs[i].value;
+    content += `\\${tabFileName}\n` + tabs[i].value.replaceAll("é", "\x15");
     if(i < tabs.length + 1) content += "\n";
   }
 
@@ -134,7 +134,7 @@ function importTabs(content){
     for (var i = 0; i < files.length; i++) {
       let file = files[i];
       let tabName = file.substring(file.search("\n"),-1);
-      let tabContent = file.substring(file.search("\n") + 1);
+      let tabContent = file.substring(file.search("\n") + 1).replaceAll("\x15","é");
 
       console.log(tabName,tabContent);
       createNewTab();
