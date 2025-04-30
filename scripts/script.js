@@ -6,7 +6,6 @@ function create8xvFile(title, content)
 {
     try
     {
-        // const lib = Module;
 
         if (lastFilePath !== null)
         {
@@ -14,12 +13,10 @@ function create8xvFile(title, content)
             lastFilePath = null;
         }
 
-        const txt = unescape(encodeURIComponent(content)); // encoding issues...
+        const txt = unescape(encodeURIComponent(content));
         const appvar = lib.TIVarFile.createNew("AppVar", title);
         appvar.setContentFromString(txt);
 
-
-        // console.log("here");
         const filePath = appvar.saveVarToFile("ODFILES");
         lastFilePath = filePath;
 
@@ -39,7 +36,6 @@ function create8xvFile(title, content)
             link.click();
 
 
-            // window['saveAs'](blob, filePath.split('/').pop());
         } else {
             alert('Couldn\'t generate file correctly.');
         }
@@ -73,7 +69,14 @@ function Hex2String(string){
 
 
 function importFile(file){
-    console.log(file);
+
+    let fileNames = file.name.split(".");
+
+    //Not a 8xv
+    if( fileNames.length < 2 || fileNames[1] != "8xv" ){
+      alert("File not valid | Be sure to upload a 8xv.");
+      return false;
+    }
 
     const arrayBuffer = file.arrayBuffer();
 
@@ -96,7 +99,7 @@ function importFile(file){
 
 
 
-    return;
+    return true;
 }
 
 
@@ -187,9 +190,7 @@ function importTabs(content){
 
         const file = e.target.files[0];
         if (!file) return;
-        importFile(file);
-
-        hideFileOptions();
+        if(importFile(file)) hideFileOptions();
     });
 
     createFileButton.on("click",function(e){
@@ -202,7 +203,7 @@ function importTabs(content){
   function getNextTabCounter() {
     let usedIds = [];
     $('#nav-tab .nav-link').each(function () {
-      const id = $(this).attr('id'); // ex: file-1-tab
+      const id = $(this).attr('id');
       const match = id && id.match(/^file-(\d+)-tab$/);
       if (match) {
         usedIds.push(parseInt(match[1], 10)); 
@@ -315,7 +316,7 @@ function importTabs(content){
       return;
     }
 
-    var name = $(this).text().replaceAll("\n","").replaceAll(" ","").replaceAll("\t",""); //Fixing a dumb issue
+    var name = $(this).text().replaceAll("\n","").replaceAll(" ","").replaceAll("\t","");//Fixing a quite dumb issue
 
     var newname = prompt("Rename '" + name + "' to: ");
     if (newname && newname.length > 0) {
@@ -335,7 +336,7 @@ function importTabs(content){
   });
 
   $('#nav-tab').on('shown.bs.tab', '.nav-link', function () {
-    $('.dropdown-menu').removeClass('show'); // Close all dropdowns when any tab is shown
+    $('.dropdown-menu').removeClass('show');
   });
 
 
